@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="geral">   
+    <header class="cabeca">
+        <div class="bemvindo">
+            <h1>Bem vindo ao Sistema, faça seu login</h1>
+        </div>
+        <div class="corpo"
+        <form method="post" name="form" onsubmit="return valida()">
+            
+            <div class="container">
+                <label><b>Username</b></label>
+                <input class="cmpinput" id="input_user" type="text" placeholder="Enter Username" name="nome" required></br>
+                <div id="erro-user">usuario incorreto</div>
+                <label><b>Password</b></label>
+                <input class="cmpinput" id="input_psw" type="password" placeholder="Enter Password" name="psw" required></br>
+                <div id="erro-senha">senha incorreta</div>
+                <button type="submit">Login</button>
+                <label>
+                <input  type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+            <div class="container" >
+                <button type="button" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </div>
+        <!-- <div><img src="django-faster.jpg" alt="logo"></div> -->
+    </header>
+
+    <footer class="rodape">
+        <div></div>
+    </footer>
+    
+</body>
+    <script src="principal.js"></script>
+</html>

@@ -1,0 +1,8 @@
+-- SELECT * from SF2010 (nolock)
+-- WHERE F2_DOC = '000241422' AND F2_SERIE ='000'
+
+
+
+select B1_BALANCA, * from SB1010 WHERE B1_COD = '048186'
+
+

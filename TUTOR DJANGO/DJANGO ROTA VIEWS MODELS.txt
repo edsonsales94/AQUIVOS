@@ -1,0 +1,107 @@
+DJANGO ROTA VIEWS MODELS
+
+----------CRIAR VENV
+
+CMD > CRIAR DIRETORIO MKDIR <nome do diretorio> > CD ENTRAR 
+
+python3 -m venv ./venv  criar a venv dentro do diretorio
+
+venv\Scripts\activate.bat    ativar a venv
+
+pip install Django 	instalar Djando na pasta raiz
+
+
+----------INICIAR PROJETO
+ 
+
+Django-adimin help
+
+Django-adimin starproject <nome da pasta que vai conter o projeto> 
+
+settings.py  -->> alterar LANGUAGE_CODE = 'en-us' -> TIME_ZONE = 'UTC'
+
+-----------SUBIR SERVIDOR PROJETO
+
+python manage.py help 
+
+python manage.py runserver
+
+-----------CRIAR APP
+
+python manage.py startapp siteapp  
+
+-----------REGISTRAR APP
+apps.py pegar o name = 'siteapp' registrar em 
+Settings ->
+INSTALLED_APPS = [
+    'siteapp',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+----------CRIAR ROTA NA URLS DO PROJETO PARA APP
+
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('', include('siteapp.urls')),
+    path('admin/', admin.site.urls),
+]
+
+----------CRIAR ROTAS URL EM APP IMPORTAR VIEWS
+
+Criar urls.py
+
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+	Path('', views.index, name='index')
+]
+
+-----------VIEWS QUE SERA IMPORTADAS
+
+from django.shortcuts import render
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse('index.html' )
+
+-----------REFERENCIAR O DIR TEMPLATES EM SETTINGS
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'siteapp/templates')],
+
+-----------REFERENCIAR O DIR ARQUIVOS STATIC EM SETTINGS
+
+------CRIAR PASTA STATIC NO PROJETO
+ 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = 'static/'
+STATICFILE_DIR =[
+    os.path.join(BASE_DIR,'aplicacaoDJ/static')
+]
+
+-------FORÇAR A COPIA DOS ARQUIVOS STATIC PARA MANIPULALOS EM APP
+
+python manage.py collectstatic
+
+
+
+
+
+
+
+
+
+
+
+
+
